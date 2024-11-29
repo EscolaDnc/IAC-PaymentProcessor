@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  build:
+    commands:
+      - zip -r lambda.zip .
+      - echo Build phase complete
+  post_build:
+    commands:
+      - echo Preparing for deployment
+      - echo Uploading Lambda code to S3...
+      - aws s3 cp lambda.zip s3://codepipeline-us-east-2-860517941476/PaymentProcessorDncP/latestBuild/lambda.zip
+      - echo Updating Lambda function code...
+      - aws lambda update-function-code --function-name test-ale --s3-bucket codepipeline-us-east-2-860517941476 --s3-key PaymentProcessorDncP/latestBuild/lambda.zip
+
+
+artifacts:
+  files:
+    - '**/*'

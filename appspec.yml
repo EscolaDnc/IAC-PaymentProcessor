@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "test-ale"
+        Alias: "prod"
+        CurrentVersion: "2"
+        TargetVersion: "1"

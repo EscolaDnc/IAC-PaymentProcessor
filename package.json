@@ -1,0 +1,17 @@
+{
+  "name": "payment-processor",
+  "version": "1.0.0",
+  "description": "Simulated payment processor for AWS Lambda",
+  "main": "index.js",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-plugin-include-dependencies": "^6.1.1"
+  }
+}

@@ -1,0 +1,16 @@
+service: dnc-teste-pagamentos
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-2
+
+functions:
+  processador_pagamentos_turbo:
+    handler: index.handler
+    events:
+      - http:
+          path: payment
+          method: post
+plugins:
+  - serverless-plugin-include-dependencies
